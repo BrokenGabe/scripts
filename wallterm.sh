@@ -14,8 +14,7 @@ exec="/usr/bin/gotop -b" # Which program to run in the terminal window on launch
 if [[ ${term} = "xfce4-terminal" || ${term} = "gnome-terminal" || ${term} = "xterm" ]] then
     ${term} ${opts} --title=${title} --geometry=${rows}${cols}${loc} --command="${exec}" &
 elif [[ ${term} = "konsole" ]] then
-    ${term} --workdir /home/$USER/ ${opts} --separate -p `TerminalColumns=${cols}` -p `TerminalRows=${rows}` -geometry ${loc}
-    qdbus org.kde.konsole $KONSOLE_DBUS_SESSION setTitle 1 `${title}`
+    ${term} --workdir /home/$USER/ ${opts} --separate -p `TerminalColumns=${cols}` -p `TerminalRows=${rows}` -geometry ${loc} -e `qdbus org.kde.konsole $KONSOLE_DBUS_SESSION setTitle 1 ${title}; ${exec};`
 fi
     #I hope the above works, without konsole, I cannot test this.
 sleep 1

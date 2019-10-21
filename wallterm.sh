@@ -7,8 +7,8 @@ title=bgcon # Window Title for the Terminal Window{
 cols=80 # Width in Columns
 rows=30 # Height in Rows
 loc=+0+0 # Location on screen in pixels
-term=xfce4-terminal # Which Terminal Emulator You Are Using, gnome or xfce4 for now
-opts="--hide-menubar --hide-borders --hide-toolbar --hide-scrollbar"
+term=xfce4-terminal # Which Terminal Emulator You Are Using, gnome-terminal or xfce4-terminal for now (testing konsole)
+opts="--hide-menubar --hide-borders --hide-toolbar --hide-scrollbar" # xterm,xfce4,gnome terminal options
 exec="/usr/bin/gotop -b" # Which program to run in the terminal window on launch
 
 if [[ ${term} = "xfce4-terminal" || ${term} = "gnome-terminal" || ${term} = "xterm" ]] then

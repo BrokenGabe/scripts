@@ -7,10 +7,13 @@ This script creates a terminal window pinned to the desktop background, useful f
 
 ##### Dependencies
 
+~~~
 1 WMTCRL
 
 To install WMCTRL
-    1 Ubuntu/Mint/Debian
-        - sudo apt-get install wmctrl
-    2 Arch/Manjaro
-        - sudo pacman -S wmctrl
+
+~~~
+1. LinuxMint/Ubuntu/Debian
+    * sudo apt-get install wmctrl -fy
+2. Arch/Mangaro
+    * pacman -S wmctrl

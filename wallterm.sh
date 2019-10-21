@@ -11,9 +11,9 @@ term=xfce4-terminal # Which Terminal Emulator You Are Using, gnome-terminal or x
 opts="--hide-menubar --hide-borders --hide-toolbar --hide-scrollbar" # xterm,xfce4,gnome terminal options
 exec="/usr/bin/gotop -b" # Which program to run in the terminal window on launch
 
-if [[ ${term} = "xfce4-terminal" || ${term} = "gnome-terminal" || ${term} = "xterm" ]] then
-    ${term} ${opts} --title=${title} --geometry=${rows}${cols}${loc} --command="${exec}" &
-elif [[ ${term} = "konsole" ]] then
+if [[ (${term} = "xfce4-terminal") || (${term} = "gnome-terminal") || (${term} = "xterm") ]]; then
+    ${term} ${opts} --title=${title} --geometry=${cols}x${rows}${loc} --command="${exec}" &
+elif [[ ${term} = "konsole" ]]; then
     ${term} --workdir /home/$USER/ ${opts} --separate -p `TerminalColumns=${cols}` -p `TerminalRows=${rows}` -geometry ${loc} -e `qdbus org.kde.konsole $KONSOLE_DBUS_SESSION setTitle 1 ${title}; ${exec};`
 fi
     #I hope the above works, without konsole, I cannot test this.
